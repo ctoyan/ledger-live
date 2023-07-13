@@ -61,6 +61,7 @@ export type CryptoCurrencyId =
   | "lbry"
   | "litecoin"
   | "lisk"
+  | "mina"
   | "mix"
   | "monero"
   | "moonriver"

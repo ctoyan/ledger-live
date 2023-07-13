@@ -1673,6 +1673,44 @@ export const cryptocurrenciesById: Record<CryptoCurrencyId, CryptoCurrency> = {
     ],
     explorerViews: [],
   },
+  mina: {
+    type: "CryptoCurrency",
+    id: "mina",
+    coinType: CoinType.MINA,
+    name: "Mina Protocol",
+    managerAppName: "Mina Protocol",
+    ticker: "MINA",
+    scheme: "mina",
+    color: "#7E61E7",
+    family: "mina",
+    units: [
+      {
+        name: "Mina",
+        code: "MINA",
+        magnitude: 5,
+      },
+      {
+        name: "Centimina",
+        code: "CENTIMINA",
+        magnitude: 3,
+      },
+      {
+        name: "Micromina",
+        code: "MICROMINA",
+        magnitude: 0,
+      },
+    ],
+    explorerViews: [
+      {
+        tx: "https://minaexplorer.com/transaction/$hash",
+        address: "https://minaexplorer.com/wallet/$address",
+      },
+      {
+        tx: "https://minascan.io/mainnet/tx/$hash",
+        address: "https://minascan.io/mainnet/account/$address",
+      },
+    ],
+  },
   mix: {
     type: "CryptoCurrency",
     id: "mix",
