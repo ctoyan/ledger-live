@@ -1,0 +1,44 @@
+{
+  "name": "@ledgerhq/hw-app-mina",
+  "version": "6.28.2",
+  "description": "Ledger Hardware Wallet Cosmos Application API",
+  "keywords": [
+    "Ledger",
+    "LedgerWallet",
+    "atom",
+    "Cosmos",
+    "NanoS",
+    "Blue",
+    "Hardware Wallet"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LedgerHQ/ledger-live.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LedgerHQ/ledger-live/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/Mina.js",
+  "module": "lib-es/Mina.js",
+  "types": "lib/Mina.d.ts",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@ledgerhq/errors": "6.12.7",
+    "@ledgerhq/hw-transport": "6.28.5",
+    "bip32-path": "^0.4.2",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "clean": "rimraf lib lib-es",
+    "build": "tsc && tsc -m ES6 --outDir lib-es",
+    "prewatch": "pnpm build",
+    "watch": "tsc --watch",
+    "doc": "documentation readme src/** --section=API --pe ts --re ts --re d.ts",
+    "lint": "eslint ./src --no-error-on-unmatched-pattern --ext .ts,.tsx --cache",
+    "lint:fix": "pnpm lint --fix",
+    "test": "jest"
+  }
+}
