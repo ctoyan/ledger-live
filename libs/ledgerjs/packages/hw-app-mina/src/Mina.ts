@@ -15,6 +15,8 @@
  *  limitations under the License.
  ********************************************************************************/
 import type Transport from "@ledgerhq/hw-transport";
+import { StatusCodes } from "@ledgerhq/errors";
+
 import BIPPath from "bip32-path";
 
 const CHUNK_SIZE = 250;
@@ -57,24 +59,20 @@ export default class Mina {
     return buf;
   }
 
-  async getAddress(
-    path: string,
-    requireConfirmation = false,
-  ): Promise<{
-    test: string;
-  }> {
-    console.log("PATH", path);
-    const bipPath = BIPPath.fromString(path).toPathArray();
-    console.log("BIP PATH", bipPath);
-    const bip44Path = this.serializePath(bipPath);
-    console.log("BIP 44 PATH SERIALIZED", bipPath);
-    return this.transport
-      .send(CLA, INS_GET_ADDR, requireConfirmation ? 1 : 0, 0, bip44Path)
-      .then(response => {
-        console.log("RESPONSE", response);
-        return {
-          test: "test",
-        };
-      });
+  async getAddress(path: string): Promise<string> {
+    // TOOD: Get account from path and use it here
+    const account = 1;
+    const accountHex = account.toString(16).padStart(8, "0");
+    const apdu = Buffer.concat([Buffer.from(accountHex, "hex")]);
+    console.log("KORR", apdu);
+
+    const response = await this.transport.send(CLA, INS_GET_ADDR, 0, 0, apdu);
+    // TODO: Returns some weird symbol at the end of the address
+    return response.toString();
+  }
+
+  signTransaction(path: string, rawTxHex: string, tokenSignatures: string[]): Promise<string> {
+    // TOOD: Get account from path and use it here
+    const account = 1;
   }
 }
