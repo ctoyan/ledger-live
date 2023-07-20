@@ -64,19 +64,26 @@ export default class Mina {
   }
 
   // in MINA public key and address are the same
-  async getAddress(path: string): Promise<string> {
+  async getAddress(
+    path: string,
+    verify?: boolean,
+  ): Promise<{
+    address: string;
+  }> {
     // TOOD: Get account from path and use it here
+    // Not sure what verify is
     const account = 1;
     const accountHex = account.toString(16).padStart(8, "0");
     const apduBuffer = Buffer.concat([Buffer.from(accountHex, "hex")]);
-    console.log("KORR", apduBuffer);
 
     const response = await this.transport.send(CLA, INS_GET_ADDR, 0, 0, apduBuffer);
     const publicKey = response.slice(0, response.length - 3).toString();
     const returnCode = response.slice(response.length - 2, response.length).toString("hex");
 
     // TODO: Returns some weird symbol at the end of the address
-    return response.toString();
+    return {
+      address: publicKey,
+    };
   }
 
   // TODO: Mina has payment and delegation transactions, so maybe we'll need a signing func for both

@@ -8,6 +8,7 @@ import ethereum from "../families/ethereum/hw-getAddress";
 import filecoin from "../families/filecoin/hw-getAddress";
 import hedera from "../families/hedera/hw-getAddress";
 import internet_computer from "../families/internet_computer/hw-getAddress";
+import mina from "../families/mina/hw-getAddress";
 import near from "../families/near/hw-getAddress";
 import ripple from "../families/ripple/hw-getAddress";
 import solana from "../families/solana/hw-getAddress";
@@ -30,6 +31,7 @@ export default {
   filecoin,
   hedera,
   internet_computer,
+  mina,
   near,
   ripple,
   solana,

@@ -46,6 +46,10 @@ import { Transaction as internet_computerTransaction } from "../families/interne
 import { TransactionRaw as internet_computerTransactionRaw } from "../families/internet_computer/types";
 import { TransactionStatus as internet_computerTransactionStatus } from "../families/internet_computer/types";
 import { TransactionStatusRaw as internet_computerTransactionStatusRaw } from "../families/internet_computer/types";
+import { Transaction as minaTransaction } from "../families/mina/types";
+import { TransactionRaw as minaTransactionRaw } from "../families/mina/types";
+import { TransactionStatus as minaTransactionStatus } from "../families/mina/types";
+import { TransactionStatusRaw as minaTransactionStatusRaw } from "../families/mina/types";
 import { Transaction as nearTransaction } from "../families/near/types";
 import { TransactionRaw as nearTransactionRaw } from "../families/near/types";
 import { TransactionStatus as nearTransactionStatus } from "../families/near/types";
@@ -92,6 +96,7 @@ export type Transaction =
   | filecoinTransaction
   | hederaTransaction
   | internet_computerTransaction
+  | minaTransaction
   | nearTransaction
   | polkadotTransaction
   | rippleTransaction
@@ -114,6 +119,7 @@ export type TransactionRaw =
   | filecoinTransactionRaw
   | hederaTransactionRaw
   | internet_computerTransactionRaw
+  | minaTransactionRaw
   | nearTransactionRaw
   | polkadotTransactionRaw
   | rippleTransactionRaw
@@ -136,6 +142,7 @@ export type TransactionStatus =
   | filecoinTransactionStatus
   | hederaTransactionStatus
   | internet_computerTransactionStatus
+  | minaTransactionStatus
   | nearTransactionStatus
   | polkadotTransactionStatus
   | rippleTransactionStatus
@@ -158,6 +165,7 @@ export type TransactionStatusRaw =
   | filecoinTransactionStatusRaw
   | hederaTransactionStatusRaw
   | internet_computerTransactionStatusRaw
+  | minaTransactionStatusRaw
   | nearTransactionStatusRaw
   | polkadotTransactionStatusRaw
   | rippleTransactionStatusRaw

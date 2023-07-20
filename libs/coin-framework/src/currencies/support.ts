@@ -97,5 +97,6 @@ export function listSupportedCurrencies(): CryptoCurrency[] {
 }
 
 export function isCurrencySupported(currency: CryptoCurrency): boolean {
+  console.log("KOR", currency.id);
   return listSupportedCurrencies().includes(currency);
 }
